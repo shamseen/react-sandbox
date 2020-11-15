@@ -1,14 +1,30 @@
-import React, { useState, useCallback } from 'react'
-import ReactDataGrid from '@inovua/reactdatagrid-community'
-import '@inovua/reactdatagrid-community/index.css'
+import React, { useState, useCallback } from 'react';
+import ReactDataGrid from '@inovua/reactdatagrid-community';
 
 // import flags from '../../Data/flags';
 import people from '../../Data/people';
 
+import '@inovua/reactdatagrid-community/index.css';
+import '@inovua/reactdatagrid-community/theme/green-light.css';
+
+/* STYLING: must import the <THEME.css> AND change theme const. possible themes:
+"amber-light"
+"amber-dark"
+"blue-light"
+"blue-dark"
+"default-light"
+"default-dark"
+"green-light"
+"green-dark"
+"pink-light"
+"pink-dark"
+*/
 
 const gridStyle = { minHeight: 550 };
+const theme = 'green-light'; //ships w default-light; manually change font color if using dark theme
 
 const Rdgio = () => {
+
     const [gridRef, setGridRef] = useState(null)
     const [dataSource, setDataSource] = useState(people);
 
@@ -46,13 +62,10 @@ const Rdgio = () => {
                 editable={true}
         columns={columns}
                 dataSource={dataSource}
+                theme={theme}
       />
         </div>
     );
-
-    // return (
-    //     <div>hfdksjf</div>
-    // );
 }
 
 export default () => <Rdgio />

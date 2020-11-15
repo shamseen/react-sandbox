@@ -1,37 +1,58 @@
-import React from 'react'
+import React, { useState, useCallback } from 'react'
 import ReactDataGrid from '@inovua/reactdatagrid-community'
 import '@inovua/reactdatagrid-community/index.css'
 
-const columns = [
-    { name: 'name', header: 'Name', minWidth: 50, defaultFlex: 2 },
-    { name: 'age', header: 'Age', maxWidth: 1000, defaultFlex: 1 }
-]
+// import flags from '../../Data/flags';
+import people from '../../Data/people';
 
-const gridStyle = { minHeight: 550 }
 
-const dataSource = [
-    { id: 1, name: 'John McQueen', age: 35 },
-    { id: 2, name: 'Mary Stones', age: 25 },
-    { id: 3, name: 'Robert Fil', age: 27 },
-    { id: 4, name: 'Roger Robson', age: 81 },
-    { id: 5, name: 'Billary Konwik', age: 18 },
-    { id: 6, name: 'Bob Martin', age: 18 },
-    { id: 7, name: 'Matthew Richardson', age: 54 },
-    { id: 8, name: 'Ritchie Peterson', age: 54 },
-    { id: 9, name: 'Bryan Martin', age: 40 },
-    { id: 10, name: 'Mark Martin', age: 44 },
-    { id: 11, name: 'Michelle Sebastian', age: 24 },
-    { id: 12, name: 'Michelle Sullivan', age: 61 },
-    { id: 13, name: 'Jordan Bike', age: 16 },
-    { id: 14, name: 'Nelson Ford', age: 34 },
-    { id: 15, name: 'Tim Cheap', age: 3 },
-    { id: 16, name: 'Robert Carlson', age: 31 },
-    { id: 17, name: 'Johny Perterson', age: 40 }
-]
+const gridStyle = { minHeight: 550 };
 
-export default () => <ReactDataGrid
-    idProperty="id"
-    columns={columns}
-    dataSource={dataSource}
-    style={gridStyle}
-/>
+const Rdgio = () => {
+    const [gridRef, setGridRef] = useState(null)
+    const [dataSource, setDataSource] = useState(people);
+
+    const cellDOMProps = (cellProps) => {
+        return {
+            onClick: () => {
+                gridRef.current.startEdit({ columnId: cellProps.id, rowIndex: cellProps.rowIndex })
+            }
+        }
+    }
+
+  const columns = [
+      { name: 'id', header: 'Id', defaultVisible: false, minWidth: 100, type: 'number', cellDOMProps },
+      { name: 'name', header: 'Name', defaultFlex: 1, minWidth: 250, cellDOMProps },
+      { name: 'country', header: 'Country', defaultFlex: 1, minWidth: 100, cellDOMProps },
+      { name: 'city', header: 'City', defaultFlex: 1, minWidth: 250, cellDOMProps },
+      { name: 'age', header: 'Age', minWidth: 150, type: 'number', cellDOMProps }
+  ];
+
+    const onEditComplete = useCallback(({ value, columnId, rowIndex }) => {
+        const data = [...dataSource];
+        data[rowIndex][columnId] = value;
+
+        setDataSource(data);
+    }, [dataSource])
+
+    return (
+        <div>
+            <h3>Grid with custom inline edit - on single click</h3>
+            <ReactDataGrid
+                onReady={setGridRef}
+        idProperty="id"
+                style={gridStyle}
+                onEditComplete={onEditComplete}
+                editable={true}
+        columns={columns}
+                dataSource={dataSource}
+      />
+        </div>
+    );
+
+    // return (
+    //     <div>hfdksjf</div>
+    // );
+}
+
+export default () => <Rdgio />

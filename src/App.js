@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import ReactDataGrid from './Components/Tables/Rdg-io';
+import RDGio from './Components/Tables/Rdg-io.js';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
 // stamp
@@ -8,7 +8,7 @@ const App = () => {
 
     return (
         <div>
-            <ReactDataGrid></ReactDataGrid>
+            <RDGio />
         </div>
     );
 };

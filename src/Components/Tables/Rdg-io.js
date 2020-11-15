@@ -28,6 +28,8 @@ const Rdgio = () => {
     const [gridRef, setGridRef] = useState(null)
     const [dataSource, setDataSource] = useState(people);
 
+    // reusable setting props
+    // sep function = can customise certain columns
     const cellDOMProps = (cellProps) => {
         return {
             onClick: () => {
@@ -36,14 +38,17 @@ const Rdgio = () => {
         }
     }
 
-  const columns = [
-      { name: 'id', header: 'Id', defaultVisible: false, minWidth: 100, type: 'number', cellDOMProps },
-      { name: 'name', header: 'Name', defaultFlex: 1, minWidth: 250, cellDOMProps },
-      { name: 'country', header: 'Country', defaultFlex: 1, minWidth: 100, cellDOMProps },
-      { name: 'city', header: 'City', defaultFlex: 1, minWidth: 250, cellDOMProps },
-      { name: 'age', header: 'Age', minWidth: 150, type: 'number', cellDOMProps }
-  ];
+    // setting header props
+    const columns = [
+        { name: 'id', header: 'Id', defaultVisible: false, minWidth: 100, type: 'number', cellDOMProps },
+        { name: 'name', header: 'Name', defaultFlex: 1, minWidth: 250, cellDOMProps },
+        { name: 'country', header: 'Country', defaultFlex: 1, minWidth: 100, cellDOMProps },
+        { name: 'city', header: 'City', defaultFlex: 1, minWidth: 250, cellDOMProps },
+        { name: 'age', header: 'Age', minWidth: 150, type: 'number', cellDOMProps }
+    ];
 
+    // updating state
+    // hooks must edit state wholesale, not just changed parts
     const onEditComplete = useCallback(({ value, columnId, rowIndex }) => {
         const data = [...dataSource];
         data[rowIndex][columnId] = value;
@@ -56,14 +61,14 @@ const Rdgio = () => {
             <h3>Grid with custom inline edit - on single click</h3>
             <ReactDataGrid
                 onReady={setGridRef}
-        idProperty="id"
+                idProperty="id"
                 style={gridStyle}
                 onEditComplete={onEditComplete}
                 editable={true}
-        columns={columns}
+                columns={columns}
                 dataSource={dataSource}
                 theme={theme}
-      />
+            />
         </div>
     );
 }

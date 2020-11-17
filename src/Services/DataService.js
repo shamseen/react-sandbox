@@ -1,6 +1,7 @@
 import firebase from "../firebase.js";
 
 //creates/reads lvl 1 object
+// TO DO: hooks? take input for which database
 const db = firebase.ref('');
 
 class DataService {

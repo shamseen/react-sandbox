@@ -8,6 +8,14 @@ const App = () => {
 
     return (
         <div>
+            <br /><br />
+            <a href="https://github.com/shamseen/react-sandbox/tree/rdg-io"
+                class="btn btn-primary btn-lg active"
+                role="button"
+                aria-pressed="true">
+                Github repo
+            </a>
+            <br /><br />
             <RDGio />
         </div>
     );

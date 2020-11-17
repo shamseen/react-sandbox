@@ -9,7 +9,7 @@ export default [
     {
         id: 0,
         firstName: 'Bill',
-        name: 'Bill',
+        name: 'Laurent',
         student: true,
         age: 20,
         city: 'Manchester',
@@ -20,7 +20,7 @@ export default [
     {
         id: 1,
         firstName: 'Mary',
-        name: 'Mary',
+        name: 'Mario',
         age: 22,
         student: true,
         city: 'New York',
@@ -31,7 +31,7 @@ export default [
     {
         id: 2,
         firstName: 'John',
-        name: 'John',
+        name: 'Ed',
         age: 32,
         student: false,
         city: 'London',
@@ -42,7 +42,7 @@ export default [
     {
         id: 3,
         firstName: 'Boby',
-        name: 'Boby',
+        name: 'Shamseen',
         age: 32,
         student: false,
         city: 'Vancouver',
@@ -53,7 +53,7 @@ export default [
     {
         id: 4,
         firstName: 'Billy',
-        name: 'Billy',
+        name: 'Chloe',
         age: 32,
         student: false,
         city: 'Edmonton',
@@ -64,7 +64,7 @@ export default [
     {
         id: 5,
         firstName: 'Johny',
-        name: 'Johny',
+        name: 'Quang',
         age: 32,
         student: true,
         city: 'San Jose',
@@ -75,7 +75,7 @@ export default [
     {
         id: 6,
         firstName: 'Hilly',
-        name: 'Hilly',
+        name: 'Allison',
         age: 32,
         student: true,
         city: 'London',
@@ -86,7 +86,7 @@ export default [
     {
         id: 7,
         firstName: 'Hillaay',
-        name: 'Hillaay',
+        name: 'Amy',
         age: 47,
         student: false,
         city: 'Leeds',
@@ -97,7 +97,7 @@ export default [
     {
         id: 8,
         firstName: 'Matthew',
-        name: 'Matthew',
+        name: 'Gigi',
         age: 47,
         student: false,
         city: 'Leeds',
@@ -108,7 +108,7 @@ export default [
     {
         id: 9,
         firstName: 'David',
-        name: 'David',
+        name: 'Sandy',
         age: 48,
         student: false,
         city: 'Toronto',
@@ -119,7 +119,7 @@ export default [
     {
         id: 10,
         firstName: 'Richard',
-        name: 'Richard',
+        name: 'Soo',
         age: 9,
         student: false,
         city: 'Ottawa',
@@ -130,7 +130,7 @@ export default [
     {
         id: 11,
         firstName: 'Hillary',
-        name: 'Hillary',
+        name: 'Clay',
         age: 34,
         student: true,
         city: 'New York',

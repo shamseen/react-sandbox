@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.exclude": {
+			"**/node_modules/": true,
+			"**/.firebase/": true,
+			"**/.vscode/": true,
+			"**/.cache/": true,
+			"**/dist/": true
+		}
+	}
+}
